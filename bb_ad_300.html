@@ -1,0 +1,39 @@
+<html>
+<head>
+<style type="text/css">
+html,
+body {
+background-color: transparent;
+margin: 0;
+padding: 0;
+}
+</style>
+<script type="text/javascript" charset="utf-8">
+
+window.onload = function() {
+	var adFrameHeight = document.body.scrollHeight;
+	
+	// use postMessage to send height to the parent window
+	var parent = window.parent;
+	if (parent && parent.postMessage) {
+	    console.log("IN IFRAME:" + adFrameHeight);
+	    parent.postMessage(adFrameHeight, "http://localhost");
+	} else {
+		console.log("postMessage not supported");
+		parent.resizeIframe(adFrameHeight);
+	}
+};
+</script>
+
+</head>
+<body>
+
+<center>
+<!-- FM Medium Rectangle 1 Zone --> 
+	  <div id="ad_600" style="width:300px;height:600px;position:relative;border:1 solid #000; display:block; background-color:#F00;">
+	  	<h3>300x600 AD</h3>
+	  </div>
+<!-- FM Medium Rectangle 1 Zone -->
+</center>
+</body>
+</html>
